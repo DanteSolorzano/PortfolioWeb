@@ -5,7 +5,7 @@
 --aquaLigth: #90d8d2;
 --sand: #e4dbab;
 --white: #ffffff;
--black: #212121;
+--black: #212121;
 }
 
 /* this lines 1Rem=10px, get easier work with different displays */
@@ -26,12 +26,105 @@ body {
     font-size: 3.5rem;
 }
 .container {
-    width: 120rem;/*this delimit the page content*/
+    max-width: 120rem;/*this delimit the page content*/
     margin: 0 auto 0 auto;
 }
 
 .nav-bar {
-    background-color: var(--aqua);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+.nav-bar a:hover {
+    color: var(--sand); 
+} 
+.nav-left a,
+.nav-right a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 2rem; 
+    font-size: 2rem;
+    margin-block: 0.5rem;
     
+  }
+.nav-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+.nav-bg {
+    background-color: var(--aqua);
 }
+@media (min-width: 768px) {
+    .nav-bar{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-right {
+        flex-direction: row;
+
+    }
+    .nav-left,
+    .nav-right {
+    margin: 0; 
+  }
+}
+
+/* profile pic */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .header-text {
+    text-align: center;
+  }
+  
+  /* Imagen circular */
+  .profile-pic-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .profile-pic {
+    width: 30rem;
+    height: 30rem;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    border: 3px solid var(--aqua);
+    transform: scale(1.1); /* Aumenta tamaño visual sin cambiar el marco */
+    margin-top: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .header-text {
+      max-width: 60%;
+    }
+
+    .header p {
+        text-align: left;
+      }
+  
+    .profile-pic {
+      width: 30rem;
+      height: 30rem;
+    }
+  }
+  
+  
+
 
