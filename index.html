@@ -14,41 +14,46 @@
 </head>
 <body>
 
-    <div class="nav-bg">
-        <nav class="nav-bar container">
-          <div class="nav-left">
-            <a href="#header-sect">D</a>
+    <section class="nav-bar_fixed">
+        <div class="nav-bg">
+            <nav class="nav-bar container">
+              <div class="nav-left">
+                <a href="#header-sect">D</a>
+              </div>
+              <div class="nav-right">
+                <a href="#gap">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+              </div>
+            </nav>
           </div>
-          <div class="nav-right">
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </nav>
-      </div>
+    </section>
       
     <header id="header-sect" class="header container">
         <div class="header-text">
             <h1 class="title">Hi, I'm <span>Dante Solorzano Ferrer</span> </h1>
 
             <p>I’m a passionate web developer and Information Systems student based in Mexico, currently pursuing my degree at the University of Guanajuato. My work blends creativity and logic, allowing me to build responsive, user-friendly web experiences that make a difference.</p>
-            <a class="header-cv" href="files/CV.pdf" download="CV.pdf">This is my CV</a>
+            <a class="header-cv" href="src/files/CV.pdf" download="CV.pdf">This is my CV</a>
 
         </div>
 
         <div class="profile-pic-container">
-            <img src="img/IMG_2364.webp" alt="Picture of Dante Solorzano" class="profile-pic">
+            <img src="src/img/IMG_2364.webp" alt="Picture of Dante Solorzano" class="profile-pic">
         </div>
     </header>
   
     <main>
-    
-        <section id="projects">
+
+        <section id="gap" class="gap"></section>
+        
+        <section class="project-sect" id="projects">
             <h2>This is what I've doing</h2>
     
-            <h3>Personal projects</h3>
+             <h3>Personal projects</h3>
             
             <div class="project-grid container">
+
 
                 <div class="project-window">
                   <a href="https://statuesque-gnome-2d92f1.netlify.app/" target="_blank">
@@ -57,7 +62,7 @@
                       <span class="dot yellow"></span>
                       <span class="dot green"></span>
                     </div>
-                    <img src="img/ProjectVet.png" alt="Project Preview">
+                    <img src="src/img/ProjectVet.png" alt="Project Preview">
                   </a>
                   <h3>Veterinary CRUD</h3>
                   <p>Stack: React</p>
@@ -70,7 +75,7 @@
                         <span class="dot yellow"></span>
                         <span class="dot green"></span>
                       </div>
-                      <img src="img/ProjectExpensePlanner.png" alt="Project Preview">
+                      <img src="src/img/ProjectExpensePlanner.png" alt="Project Preview">
                     </a>
                     <h3>Expense planner</h3>
                     <p>Stack: React</p>
@@ -83,10 +88,23 @@
                         <span class="dot yellow"></span>
                         <span class="dot green"></span>
                       </div>
-                      <img src="img/ProjectCripto.png" alt="Project Preview">
+                      <img src="src/img/ProjectCripto.png" alt="Project Preview">
                     </a>
                     <h3>Cryptocurrency quote</h3>
                     <p>Stack: React</p>
+                  </div>                
+                <!-- new project -->
+                <div class="project-window">
+                    <a href="https://festivalmusicarockandedmm.netlify.app/" target="_blank">
+                      <div class="window-bar">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                      </div>
+                      <img src="src/img/ProjectFestival.png" alt="Project Preview">
+                    </a>
+                    <h3>Music festival landing page </h3>
+                    <p>Stack: HTML, SASS, Javascript</p>
                   </div>                
                 <!-- new project -->
             
@@ -100,8 +118,8 @@
         
             <h3>IT Experiences</h3>
 
-            <div class="galey">
-
+            <div class="gallery container">
+                <ul class="image-gallery"></ul>
             </div>
 
         </section>
@@ -199,6 +217,8 @@
     <footer>
         <p>All the Rigths etc</p>
     </footer>
+
+    <script src="src/app.js"></script>
 
 </body>
 </html>
