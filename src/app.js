@@ -76,17 +76,21 @@ function highlightLink(){
         const navLinks = document.querySelectorAll('.nav-bar a');
 
         let actual = '';
+
         sections.forEach(section => {
             
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
+            
 
             if(window.scrollY >= (sectionTop - sectionHeight / 3) ) {
+                console.log(section.id);
                 actual = section.id;
             }
         })
 
         navLinks.forEach(link => {
+            link.classList.remove('active');
             if(link.getAttribute('href') === '#' + actual){
                 link.classList.add('active');
             }
