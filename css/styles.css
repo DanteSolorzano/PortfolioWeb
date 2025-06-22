@@ -62,8 +62,10 @@ h2, h3 {
   }
 .nav-bar a:hover {
     color: var(--sand); 
-} 
-
+}
+.nav-bar a.active{
+    color: var(--sand);
+    } 
 .nav-left a,
 .nav-right a {
     color: var(--white);
@@ -103,9 +105,6 @@ h2, h3 {
     top: 0;
     width: 100%;
     z-index: 1000;
-    }
-    .nav-bar a.active{
-    color: var(--sand);
     }
 }
 
