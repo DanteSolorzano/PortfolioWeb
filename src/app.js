@@ -72,6 +72,10 @@ function closeModal(){
 
 function highlightLink(){
     document.addEventListener('scroll', function(){
+        //for mobile >= 768px
+        if(window.innerWidth < 768) return;
+
+
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-bar a');
 
