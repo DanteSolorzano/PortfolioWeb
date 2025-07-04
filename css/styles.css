@@ -254,6 +254,7 @@ h2, h3 {
   .green { background-color: #00ca4e; }
 
 /* School project seccion */
+
 .icon-video svg {
   width: 4.5rem;
   height: 4.5rem;
@@ -261,7 +262,7 @@ h2, h3 {
 
 .icon-video:hover svg {
   stroke: var(--sand); 
-  fill: var(--sand); /* solo si el SVG usa fill */
+  fill: var(--sand); 
 
 }
 .video-body {
@@ -296,7 +297,7 @@ h2, h3 {
   border-radius: 0.5rem;
 }
 #buttonVP {
-  opacity: 0;
+  opacity: 1;
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
@@ -307,25 +308,26 @@ h2, h3 {
   position: absolute;
   transform: translate(-50%, -50%);
   transition: .5s ease;
-
 }
+@media (min-width: 768px) {
+    #buttonVP {
+      opacity: 0;
+    }
+}
+
 #icon-videoPlayer{
   display: block;
   margin: 0 auto;
 }
 
-/* Estilo solo para el icono de play */
 #icon-videoPlayer.icon-play {
   padding-top: 0.45rem;
   padding-left: 1.3rem;
 }
 
-/* Estilo limpio para el icono de pausa */
 #icon-videoPlayer.icon-pause {
-  padding-top: .5rem; /* O ajusta según lo que necesites */
+  padding-top: .5rem; 
 }
-
-
 
 #buttonVP:focus{
   outline: none;
@@ -333,10 +335,15 @@ h2, h3 {
 #time {
   font-family: "JetBrains Mono", monospace;
   position: absolute;
-  bottom: 2.7rem;
+  bottom: 1rem;
   left: 50%;
   transform: translate(-50%);
   color: var(--white);
+}
+@media (min-width: 768px) {
+    #time {
+      bottom: 2.7rem;
+    }
 }
 
 /* gallery section */
