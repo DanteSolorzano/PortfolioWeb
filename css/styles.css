@@ -274,9 +274,16 @@ h2, h3 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 100%;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 .video-container {
   width: 80rem;
+  max-width: 90%;
+  margin: 0 auto;
+  position: relative;
 }
 .video-container:hover #buttonVP {
   opacity: 1;
@@ -284,7 +291,9 @@ h2, h3 {
 
 #video {
   width: 100%;
+  max-width: 100%;
   box-shadow: -2px 1px 30px -10px rgba(0, 0, 0, 0.57);
+  border-radius: 0.5rem;
 }
 #buttonVP {
   opacity: 0;
