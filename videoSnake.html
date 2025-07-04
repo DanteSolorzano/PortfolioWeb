@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Dante Solorzano Ferrer</title>
+    <!-- Preload makes the styles load faster -->
+     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="video-body">
+    <section class="nav-bar_fixed">
+        <div class="nav-bg">
+            <nav class="nav-bar container">
+              <div class="nav-left">
+                <a class="icon-video" href="index.html"><svg width="64px" height="64px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-c</title><polyline points="112 160 48 224 112 288" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></polyline><path d="M64,224H358c58.76,0,106,49.33,106,108v20" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path></g></svg></a>
+              </div>
+            </nav>
+          </div>
+    </section>
+    <main>
+        <div class="container-video-player">
+            <div class="video-container">
+                <div id="time">0.00/0.00</div>
+                    <!-- video -->
+                     <video id="video">
+                        <source src="./src/media/snakeVideoDemo.mp4">
+                     </video>
+                     <!-- end video -->
+                      <!-- play button -->
+                      <button type="button" id="buttonVP">
+                        <img src="./src/media/play.png" id="icon-videoPlayer" class="icon-play">
+                      </button>
+            </div>
+        </div>
+    </main>
+    <script src="src/videoPlayer.js"></script>
+
+</body>
+</html>

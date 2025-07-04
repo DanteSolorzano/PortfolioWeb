@@ -87,8 +87,8 @@ function highlightLink(){
             const sectionHeight = section.clientHeight;
             
 
-            if(window.scrollY >= (sectionTop - sectionHeight / 3) ) {
-                console.log(section.id);
+            if(window.scrollY >= (sectionTop - sectionHeight / 3.5) ) {
+                //console.log(section.id);
                 actual = section.id;
             }
         })
@@ -100,4 +100,5 @@ function highlightLink(){
             }
         })
     })
+
 }
