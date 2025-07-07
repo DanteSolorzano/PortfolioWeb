@@ -11,6 +11,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <!--email send-->
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function(){
+          emailjs.init({
+            publicKey: "oOGb2U6X60H0vt8ld",
+          });
+      })();
+    </script>
+    <script src="src/email.js"></script>
 </head>
 <body>
 
@@ -223,18 +235,18 @@
             <div class="field-container">
 
                 <div class="field-item" ><label for="Name">Name</label>
-                    <input class="input-text" type="text" placeholder="Your name"></div>
+                    <input id="name" class="input-text" type="text" placeholder="Your name"></div>
     
                 <div class="field-item"><label for="Email">Email</label>
-                    <input class="input-text" type="email" placeholder="Email"></div>
+                    <input id="email" class="input-text" type="email" placeholder="Email"></div>
     
                 <div class="field-item"> <label for="Message">Mesagge</label>
-                    <textarea class="input-text" placeholder="Your message"></textarea></div>
+                    <textarea id="message" class="input-text" placeholder="Your message"></textarea></div>
                 
             </div>
 
             <div>
-                <input class="button" type="submit" value="Send">
+                <input onclick="sendMail()" class="button" type="submit" value="Send">
             </div>
            
         </fieldset>
