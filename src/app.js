@@ -22,7 +22,7 @@ function fixNav(){
 function createGallery(){
     const gallery = document.querySelector('.image-gallery');
 
-    for(let i = 2; i<=6; i++){
+    for(let i = 2; i<=5; i++){
         const listItem = document.createElement('li');
         const image = document.createElement('IMG');
         image.src = `src/img/gallery/${i}.jpeg`;
