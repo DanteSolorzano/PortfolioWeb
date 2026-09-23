@@ -5,7 +5,7 @@ const translations = {
     nav_skills: "Skills",
     nav_contact: "Contact",
     title_hi: "Hi, I'm ",
-    header_desc: "I’m a passionate web developer and Information Systems student based in Mexico, currently pursuing my degree at the University of Guanajuato. My work blends creativity and logic, allowing me to build responsive, user friendly web experiences.",
+    header_desc: "Web developer focused on creating efficient solutions. I am currently in my seventh semester of the Information Systems program at the University of Guanajuato and working as a backend .NET developer intern for the state government (Secretaría de Finanzas). I am passionate about blending creativity and logic, whether I'm building full-stack web projects, participating in <a href='gallery.html' style='color: var(--aquaLigth); text-decoration: underline; font-weight: bold;'>hackathons</a>, or designing robust systems.",    
     header_cv: "This is my CV",
     cv_link: "src/files/CV.pdf",
     projects_title: "This is what I've doing",
@@ -19,7 +19,11 @@ const translations = {
     skills_tools: "Tools:",
     skills_db: "Databases:",
     skills_other: "Other:",
-    skills_other_desc: "UI design, responsive development, data visualization, reports, CSS architecture: BEM, Utility-first",
+    skills_ai: "AI & Automation:",
+    skills_tools: "Tools & Cloud:", 
+    other_ui: "UI Design",
+    other_responsive: "Responsive Development",
+    other_data: "Clean Architecture",    
     contact_title: "Contact Me!",
     contact_social: "Social media",
     contact_form_title: "Get in touch",
@@ -35,7 +39,7 @@ const translations = {
     nav_skills: "Habilidades",
     nav_contact: "Contacto",
     title_hi: "Hola, soy ",
-    header_desc: "Soy un desarrollador web apasionado y estudiante de la Licenciatura en Sistemas de Información, actualmente curso el 5to semestre en la Universidad de Guanajuato. Mi trabajo combina creatividad y lógica, lo que me permite construir experiencias web responsivas y fáciles de usar.",
+    header_desc: "Desarrollador web enfocado en crear soluciones eficientes. Actualmente curso mi séptimo semestre en la Universidad de Guanajuato y trabajo como desarrollador backend .NET en la Secretaría de Finanzas del Estado de Guanajuato. Me apasiona combinar creatividad y lógica, ya sea construyendo proyectos web full-stack, participando en <a href='gallery.html' style='color: var(--aquaLigth); text-decoration: underline; font-weight: bold;'>hackatones</a> o diseñando sistemas robustos.",
     header_cv: "Este es mi CV",
     cv_link: "src/files/CV_Dante_Solorzano_Ferrer 2025.pdf",
     projects_title: "Esto es en lo que he trabajado",
@@ -49,7 +53,11 @@ const translations = {
     skills_tools: "Herramientas de Desarrollo:",
     skills_db: "Bases de datos:",
     skills_other: "Otros:",
-    skills_other_desc: "Diseño UI, desarrollo responsivo, presentación de datos, reportes, arquitectura CSS: BEM, Utility-first",
+    skills_ai: "IA y Automatización:",
+    skills_tools: "Herramientas y Nube:",
+    other_ui: "Diseño UI",
+    other_responsive: "Desarrollo Responsivo",
+    other_data: "Clean Architecture",
     contact_title: "¡Contáctame!",
     contact_social: "Redes Sociales",
     contact_form_title: "Pongámonos en contacto",
@@ -66,7 +74,7 @@ const translations = {
 let currentLang = localStorage.getItem('lang') || 'en';
 
 document.addEventListener('DOMContentLoaded', function(){
-    createGallery();
+    //createGallery();
     fixNav();
     highlightLink();
     initTranslation(); // Inicializa las traducciones al cargar
@@ -90,10 +98,10 @@ function initTranslation() {
 function applyTranslation(lang) {
     const texts = translations[lang];
 
-    // Cambiar contenido de texto (textContent)
+    // CAMBIO AQUÍ: Usamos innerHTML en lugar de textContent
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if(texts[key]) el.textContent = texts[key];
+        if(texts[key]) el.innerHTML = texts[key]; 
     });
 
     // Cambiar Placeholders (inputs)
@@ -148,34 +156,34 @@ function createGallery(){
     }
 }
 
-function showImage(i){
-    const image = document.createElement('IMG');
-    image.src = `src/img/gallery/${i}.jpeg`;
-    image.alt = 'Galery Image';
+// function showImage(i){
+//     const image = document.createElement('IMG');
+//     image.src = `src/img/gallery/${i}.jpeg`;
+//     image.alt = 'Galery Image';
 
-    //Generate Modal
-    const modal = document.createElement('DIV');
-    modal.classList.add('modal');
-    modal.onclick = closeModal;
+//     //Generate Modal
+//     const modal = document.createElement('DIV');
+//     modal.classList.add('modal');
+//     modal.onclick = closeModal;
     
-    modal.append(image);
+//     modal.append(image);
 
-    //add to html
-    const body = document.querySelector('body');
-    body.classList.add('overflow-hidden');
-    body.appendChild(modal);
-}
+//     //add to html
+//     const body = document.querySelector('body');
+//     body.classList.add('overflow-hidden');
+//     body.appendChild(modal);
+// }
 
-function closeModal(){
-    const modal = document.querySelector('.modal');
-    modal.classList.add('fadeOut');
+// function closeModal(){
+//     const modal = document.querySelector('.modal');
+//     modal.classList.add('fadeOut');
 
-    setTimeout(() => {
-        modal?.remove();
-        const body = document.querySelector('body');
-        body.classList.remove('overflow-hidden');
-    }, 500);
-}
+//     setTimeout(() => {
+//         modal?.remove();
+//         const body = document.querySelector('body');
+//         body.classList.remove('overflow-hidden');
+//     }, 500);
+// }
 
 function highlightLink(){
     document.addEventListener('scroll', function(){

@@ -269,6 +269,7 @@ h2, h3 {
 
 /* School project seccion */
 
+/* School project seccion */
 .icon-video svg {
   width: 4.5rem;
   height: 4.5rem;
@@ -277,14 +278,14 @@ h2, h3 {
 .icon-video:hover svg {
   stroke: var(--sand); 
   fill: var(--sand); 
-
 }
+
 .video-body {
   min-height: 100vh;
   background-image: linear-gradient(to top, #f7feff 0%, #d0fcf8 80%); 
 }
 
-.container-video-player{
+.container-video-player {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -294,70 +295,171 @@ h2, h3 {
   padding: 1rem;
   box-sizing: border-box;
 }
+
 .video-container {
   width: 80rem;
   max-width: 90%;
   margin: 0 auto;
   position: relative;
-}
-.video-container:hover #buttonVP {
-  opacity: 1;
+  border-radius: 0.5rem;
+  overflow: hidden; /* Asegura que los elementos hijos respeten los bordes redondeados */
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4); /* Sombra más suave y moderna */
 }
 
 #video {
   width: 100%;
   max-width: 100%;
-  box-shadow: -2px 1px 30px -10px rgba(0, 0, 0, 0.57);
+  display: block; /* Elimina un pequeño margen inferior fantasma que suelen tener los videos */
   border-radius: 0.5rem;
 }
+
+/* Botón central más estilizado */
 #buttonVP {
-  opacity: 1;
-  width: 10rem;
-  height: 10rem;
+  width: 6rem; /* Reducido un poco para que no cubra tanto el video */
+  height: 6rem;
   border-radius: 50%;
-  background: var(--aquaLigth);
+  background: var(--aquaLigth); 
   border: none;
   top: 50%;
   left: 50%;
   position: absolute;
-  transform: translate(-50%, -50%);
-  transition: .5s ease;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición rebotante suave */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px); /* Efecto cristal moderno */
+  opacity: 1;
 }
+
+/* Hover effects para desktop */
 @media (min-width: 768px) {
     #buttonVP {
       opacity: 0;
     }
+    
+    .video-container:hover #buttonVP {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
 }
 
-#icon-videoPlayer{
+#buttonVP:hover {
+  transform: translate(-50%, -50%) scale(1.05) !important;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+#icon-videoPlayer {
+  width: 2.5rem; /* Ajustado al nuevo contenedor */
   display: block;
-  margin: 0 auto;
 }
 
+/* Ajustes visuales perfectos usando padding con flexbox */
 #icon-videoPlayer.icon-play {
-  padding-top: 0.45rem;
-  padding-left: 1.3rem;
-}
-
-#icon-videoPlayer.icon-pause {
-  padding-top: .5rem; 
+  padding-left: 0.3rem; 
 }
 
 #buttonVP:focus{
   outline: none;
 }
+
+/* Tiempo con diseño de "Píldora" */
 #time {
   font-family: "JetBrains Mono", monospace;
   position: absolute;
-  bottom: 1rem;
+  bottom: 1.5rem;
   left: 50%;
-  transform: translate(-50%);
+  transform: translateX(-50%);
   color: var(--white);
+  background-color: rgba(0, 0, 0, 0.65); /* Fondo oscuro para dar contraste */
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(4px);
+  pointer-events: none; /* Evita que interrumpa si intentas pausar dando clic abajo */
+  transition: opacity 0.3s ease;
 }
+
+/* Ajustamos la píldora de tiempo para que no choque con la barra */
+#time {
+  bottom: 2rem; 
+}
+
+/* Contenedor de la barra de progreso estilo "píldora" flotante */
+.progress-container {
+  position: absolute;
+  bottom: 4.2rem; /* La subimos para que quede arriba del contador de tiempo */
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 2.2rem;
+  background: rgba(0, 0, 0, 0.65); /* Fondo negro semitransparente igual al tiempo */
+  backdrop-filter: blur(4px);
+  border-radius: 2rem;
+  padding: 0 1.2rem;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Ocultar en escritorio hasta hacer hover */
 @media (min-width: 768px) {
-    #time {
-      bottom: 2.7rem;
-    }
+  .progress-container {
+    opacity: 0;
+  }
+  .video-container:hover .progress-container {
+    opacity: 1;
+  }
+}
+
+/* Estilos de la barra deslizable */
+#progress-bar {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.25); /* Toque blanco/grisáceo translúcido */
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Botón deslizable (Thumb) en color turquesa (var(--aquaLigth)) */
+#progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: var(--aquaLigth);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#progress-bar::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+/* Para Firefox */
+#progress-bar::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: var(--aquaLigth);
+  border: none;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+/* Ajuste fino para la posición del contador de tiempo */
+#time {
+  bottom: 1.2rem;
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
 }
 
 /* gallery section */
@@ -460,7 +562,6 @@ h2, h3 {
       }
   }
 
-  
   .skills-section h3 {
     font-size: 2.4rem;
     color: var(--black);
@@ -482,23 +583,65 @@ h2, h3 {
     color: var(--aqua);
   }
   
-  .icons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 1.5rem;
-  }
-  
-  .icons svg {
-    width: 5rem;
-    height: 5rem;
-    transition: transform 0.3s ease;
-  }
-  
-  .icons svg:hover {
-    transform: scale(1.2);
-  }
+/* --- Estilos para las Etiquetas de Habilidades (Skills Tags) --- */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+  justify-content: center; /* Centra las etiquetas horizontalmente */
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #333; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Colores específicos por tecnología */
+.tag-csharp, .tag-dotnet, .tag-maui { background-color: #512BD4; } 
+.tag-php { background-color: #777BB4; } 
+.tag-ts { background-color: #3178C6; } 
+.tag-js { background-color: #F7DF1E; color: #000; } 
+.tag-python { background-color: #3776AB; } 
+.tag-java { background-color: #5382A1; } 
+.tag-c { background-color: #A8B9CC; color: #333; } 
+
+.tag-react { background-color: #61DAFB; color: #000; } 
+.tag-tailwind { background-color: #06B6D4; } 
+.tag-vite { background-color: #646CFF; } 
+.tag-orm { background-color: #0081CB; } 
+
+.tag-ai { background-color: #1A73E8; } 
+.tag-selenium { background-color: #43B02A; } 
+
+.tag-sqlserver { background-color: #CC292B; } 
+.tag-mysql { background-color: #4479A1; } 
+.tag-postgres { background-color: #336791; } 
+.tag-nosql { background-color: #47A248; } 
+.tag-supabase { background-color: #3ECF8E; color: #000; } 
+
+.tag-docker { background-color: #2496ED; } 
+.tag-git { background-color: #F05032; } 
+.tag-aws { background-color: #FF9900; color: #000; } 
+.tag-itil { background-color: #004D99; } 
+
+/* Nuevos colores para la sección Other */
+.tag-ui { background-color: #E91E63; } /* Rosa */
+.tag-responsive { background-color: #8E24AA; } /* Púrpura */
+.tag-data-vis { background-color: #00897B; } /* Verde azulado */
+.tag-css-arch { background-color: #3949AB; } /* Índigo */
 
   /*Contact section*/
 

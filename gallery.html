@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Experiencias - Dante Solorzano</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Estilos divertidos y modernos para la galería */
+        body {
+            background-image: linear-gradient(to top, #f7feff 0%, #d0fcf8 100%);
+            min-height: 100vh;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin: 2rem;
+            padding: 1.5rem 2.5rem;
+            background: var(--aquaLigth, #0bd3d3);
+            color: #fff;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 3rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .gallery-header {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .gallery-header h1 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-section {
+            margin-bottom: 5rem;
+        }
+        .gallery-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .fun-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            padding: 0 2rem;
+            margin: 0;
+        }
+        
+        /* Efecto de carta interactiva para las fotos */
+        .fun-grid li {
+            list-style: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: zoom-in;
+            background: #fff;
+            border: 8px solid #fff; /* Marco tipo polaroid */
+        }
+        
+        .fun-grid li:hover {
+            transform: scale(1.05) rotate(3deg); /* Rotación divertida al hacer hover */
+            z-index: 2;
+        }
+
+        /* Invertir rotación para hijos pares (da un aspecto más orgánico) */
+        .fun-grid li:nth-child(even):hover {
+            transform: scale(1.05) rotate(-3deg);
+        }
+        
+        .fun-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn"> ← </a>
+    
+    <header class="gallery-header container">
+        <h1>IT Gallery</h1>
+    </header>
+
+    <main class="container">
+        <!-- Sección 1: Hackatones -->
+        <section class="gallery-section">
+            <h2>Hackathones 2025 & 2026</h2>
+            <ul class="fun-grid" id="hackathon-gallery">
+                <!-- Se llenará con JS -->
+            </ul>
+        </section>
+
+        <!-- Sección 2: Escuela / Otros -->
+        <!-- <section class="gallery-section">
+            <h2>Videos y Escuela</h2>
+            <ul class="fun-grid" id="school-gallery">
+                Se llenará con JS -->
+         <!--   </ul>-->
+       <!-- </section>-->
+
+    </main>
+
+    <script src="src/gallery.js"></script>
+</body>
+</html>
