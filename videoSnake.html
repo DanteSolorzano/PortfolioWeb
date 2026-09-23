@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Dante Solorzano Ferrer</title>
     <!-- Preload makes the styles load faster -->
-     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="preload" href="css/styles.css" as="style">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,12 @@
         <div class="nav-bg">
             <nav class="nav-bar container">
               <div class="nav-left">
-                <a class="icon-video" href="index.html"><svg width="64px" height="64px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-c</title><polyline points="112 160 48 224 112 288" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></polyline><path d="M64,224H358c58.76,0,106,49.33,106,108v20" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path></g></svg></a>
+                <a class="icon-video" href="index.html">
+                  <svg width="64px" height="64px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor">
+                    <polyline points="112 160 48 224 112 288" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></polyline>
+                    <path d="M64,224H358c58.76,0,106,49.33,106,108v20" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path>
+                  </svg>
+                </a>
               </div>
             </nav>
           </div>
@@ -26,32 +31,16 @@
         <div class="container-video-player">
             <div class="video-container">
                 <div id="time">0.00/0.00</div>
-                    <!-- video -->
                      <video id="video" poster="./src/img/SchoolProjectSnake.png">
                         <source src="./src/media/snakeVideoDemo.mp4">
                      </video>
-                     <!-- end video -->
-                      <!-- play button -->
                       <button type="button" id="buttonVP">
                         <img src="./src/media/play.png" id="icon-videoPlayer" class="icon-play">
                       </button>
             </div>
         </div>
     </main>
-    <!-- <section class="info-video">
-      <div class="project-window video-info">
-          <div class="window-bar">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-        <h3>Snake Game in C</h3>
-        <p>This project involved creating a version of the classic Snake game using the C programming language, as part of a course at the Mathematical Research Center (CIMAT). The game features a score-saving system, an interactive menu with control instructions, customizable controls, and a clean terminal-based interface.</p>
-        <p>The implementation uses circular arrays for snake movement, structures for user data, and file handling to store high scores. It includes pointer management, ANSI escape codes for cursor control, sound, and color, and uses termios.h to handle real-time input by disabling echo and canonical mode.</p>
-      </div>
-    </section> -->
 
     <script src="src/videoPlayer.js"></script>
-
 </body>
 </html>

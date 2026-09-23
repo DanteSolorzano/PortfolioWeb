@@ -108,6 +108,20 @@ h2, h3 {
     }
 }
 
+.translate {
+  background: none;
+  border: none;
+  color: white; 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+.translate:hover{
+  color: var(--sand);
+}
+
 /* profile pic and introduction */
 .header {
     display: flex;
@@ -623,7 +637,7 @@ h2, h3 {
   .footer a:hover {
     color: var(--sand);
   }
-  
+
 
 
 

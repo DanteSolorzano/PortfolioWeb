@@ -1,21 +1,131 @@
+// --- Diccionario de Traducciones ---
+const translations = {
+  en: {
+    nav_projects: "Projects",
+    nav_skills: "Skills",
+    nav_contact: "Contact",
+    title_hi: "Hi, I'm ",
+    header_desc: "I’m a passionate web developer and Information Systems student based in Mexico, currently pursuing my degree at the University of Guanajuato. My work blends creativity and logic, allowing me to build responsive, user friendly web experiences.",
+    header_cv: "This is my CV",
+    cv_link: "src/files/CV.pdf",
+    projects_title: "This is what I've doing",
+    projects_personal: "Personal projects",
+    projects_school: "School projects",
+    projects_it: "IT Experiences",
+    skills_title: "What I have learned during my career",
+    skills_subtitle: "Skills & Tools",
+    skills_lang: "Languages:",
+    skills_frameworks: "Frameworks & Libraries:",
+    skills_tools: "Tools:",
+    skills_db: "Databases:",
+    skills_other: "Other:",
+    skills_other_desc: "UI design, responsive development, data visualization, reports, CSS architecture: BEM, Utility-first",
+    contact_title: "Contact Me!",
+    contact_social: "Social media",
+    contact_form_title: "Get in touch",
+    contact_name: "Name",
+    contact_name_ph: "Your name",
+    contact_msg: "Message",
+    contact_msg_ph: "Your message",
+    contact_send: "Send",
+    footer_copy: "© 2025 Dante Solorzano. All rights reserved."
+  },
+  es: {
+    nav_projects: "Proyectos",
+    nav_skills: "Habilidades",
+    nav_contact: "Contacto",
+    title_hi: "Hola, soy ",
+    header_desc: "Soy un desarrollador web apasionado y estudiante de la Licenciatura en Sistemas de Información, actualmente curso el 5to semestre en la Universidad de Guanajuato. Mi trabajo combina creatividad y lógica, lo que me permite construir experiencias web responsivas y fáciles de usar.",
+    header_cv: "Este es mi CV",
+    cv_link: "src/files/CV_Dante_Solorzano_Ferrer 2025.pdf",
+    projects_title: "Esto es en lo que he trabajado",
+    projects_personal: "Proyectos personales",
+    projects_school: "Proyectos escolares",
+    projects_it: "Experiencias TI",
+    skills_title: "Qué aprendí durante mi carrera",
+    skills_subtitle: "Skills & Software",
+    skills_lang: "Lenguajes:",
+    skills_frameworks: "Frameworks & Librerías:",
+    skills_tools: "Herramientas de Desarrollo:",
+    skills_db: "Bases de datos:",
+    skills_other: "Otros:",
+    skills_other_desc: "Diseño UI, desarrollo responsivo, presentación de datos, reportes, arquitectura CSS: BEM, Utility-first",
+    contact_title: "¡Contáctame!",
+    contact_social: "Redes Sociales",
+    contact_form_title: "Pongámonos en contacto",
+    contact_name: "Nombre",
+    contact_name_ph: "Tu nombre",
+    contact_msg: "Mensaje",
+    contact_msg_ph: "Tu mensaje",
+    contact_send: "Enviar",
+    footer_copy: "© 2025 Dante Solorzano. Todos los derechos reservados."
+  }
+};
+
+// Variable Global para el idioma
+let currentLang = localStorage.getItem('lang') || 'en';
+
 document.addEventListener('DOMContentLoaded', function(){
     createGallery();
     fixNav();
     highlightLink();
+    initTranslation(); // Inicializa las traducciones al cargar
 })
 
+function initTranslation() {
+    const translateBtn = document.querySelector('.translate');
+    if(!translateBtn) return;
+
+    // Aplicar el idioma guardado inicialmente
+    applyTranslation(currentLang);
+
+    // Cambiar de idioma al hacer click
+    translateBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'es' : 'en';
+        localStorage.setItem('lang', currentLang); // Guardarlo en caché
+        applyTranslation(currentLang);
+    });
+}
+
+function applyTranslation(lang) {
+    const texts = translations[lang];
+
+    // Cambiar contenido de texto (textContent)
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if(texts[key]) el.textContent = texts[key];
+    });
+
+    // Cambiar Placeholders (inputs)
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if(texts[key]) el.setAttribute('placeholder', texts[key]);
+    });
+
+    // Cambiar Valores (botón Submit)
+    document.querySelectorAll('[data-i18n-value]').forEach(el => {
+        const key = el.getAttribute('data-i18n-value');
+        if(texts[key]) el.value = texts[key];
+    });
+
+    // Cambiar Enlaces (href del CV)
+    document.querySelectorAll('[data-i18n-href]').forEach(el => {
+        const key = el.getAttribute('data-i18n-href');
+        if(texts[key]) el.href = texts[key];
+    });
+}
+
+// --- Funciones Anteriores Originales ---
 function fixNav(){
     const nav = document.querySelector('.nav-bar_fixed');
     const gap = document.querySelector('.gap');
 
     window.addEventListener('scroll', function(){
-        
         if(gap.getBoundingClientRect().bottom < 115){
             nav.classList.add('fixed');
         } else {
             nav.classList.remove('fixed');
         }
-        
     })
 }
 
@@ -39,10 +149,9 @@ function createGallery(){
 }
 
 function showImage(i){
-        const image = document.createElement('IMG');
-        image.src = `src/img/gallery/${i}.jpeg`;
-        image.alt = 'Galery Image';
-
+    const image = document.createElement('IMG');
+    image.src = `src/img/gallery/${i}.jpeg`;
+    image.alt = 'Galery Image';
 
     //Generate Modal
     const modal = document.createElement('DIV');
@@ -55,7 +164,6 @@ function showImage(i){
     const body = document.querySelector('body');
     body.classList.add('overflow-hidden');
     body.appendChild(modal);
-    
 }
 
 function closeModal(){
@@ -67,7 +175,6 @@ function closeModal(){
         const body = document.querySelector('body');
         body.classList.remove('overflow-hidden');
     }, 500);
-
 }
 
 function highlightLink(){
@@ -75,20 +182,16 @@ function highlightLink(){
         //for mobile >= 768px
         if(window.innerWidth < 768) return;
 
-
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-bar a');
 
         let actual = '';
 
         sections.forEach(section => {
-            
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
             
-
             if(window.scrollY >= (sectionTop - sectionHeight / 3.5) ) {
-                //console.log(section.id);
                 actual = section.id;
             }
         })
@@ -100,5 +203,4 @@ function highlightLink(){
             }
         })
     })
-
 }
