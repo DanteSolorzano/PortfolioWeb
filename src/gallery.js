@@ -8,7 +8,7 @@ function createHackathonGallery(){
     
     // Aquí puedes ajustar los nombres de las imágenes de tus hackatones
     // Por ejemplo, si tienes 4 fotos (2.jpeg, 3.jpeg, etc.)
-    for(let i = 2; i <= 8; i++){
+    for(let i = 2; i <= 7; i++){
         createGalleryItem(gallery, `src/img/gallery/${i}.jpeg`);
     }
 }
